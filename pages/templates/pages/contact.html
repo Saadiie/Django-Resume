@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact - MySite{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* 1. The Main Card */
+    .contact-form {
+        max-width: 500px;
+        margin: 50px auto;
+        background: #ffffff; /* Switched to white for a cleaner 'sober' look */
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Subtle shadow */
+        border: 1px solid #eee;
+    }
+
+    .contact-form h1 {
+        margin-bottom: 25px;
+        color: #1a1a2e;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    /* 2. Fix the Django Form Layout */
+    form p {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column; /* Puts label on top of input */
+        gap: 8px; /* Space between label and input */
+    }
+
+    /* 3. Style the Labels */
+    form label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #444;
+    }
+
+    /* 4. Style the Inputs and Textarea */
+    form input, 
+    form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1.5px solid #e1e1e1;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        box-sizing: border-box; /* Crucial: ensures padding doesn't break width */
+    }
+
+    form input:focus, 
+    form textarea:focus {
+        outline: none;
+        border-color: #1a1a2e;
+        background-color: #fdfdfd;
+    }
+
+    /* 5. The Button */
+    .submit-btn {
+        width: 100%;
+        background: #1a1a2e;
+        color: white;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+        background: #2d2d4d;
+    }
+
+    /* Success Message */
+    .success {
+        background: #d4edda;
+        color: #155724;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-form">
+
+    <h1>Contact Me</h1>
+
+    {% if success %}
+        <div class="success">Your message has been sent! I'll get back to you soon.</div>
+    {% endif %}
+
+    <form method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</div>
+{% endblock %}

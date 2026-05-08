@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        nav { background: #1a1a2e; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { color: white; font-size: 1.4rem; font-weight: bold; text-decoration: none; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav ul a { color: #ccc; text-decoration: none; font-size: 0.95rem; }
+        nav ul a:hover { color: white; }
+        main { flex: 1; padding: 2rem; }
+        footer { background: #1a1a2e; color: #aaa; text-align: center; padding: 1rem; font-size: 0.85rem; }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<nav>
+    <a class="logo" href="{% url 'home' %}">SAAD.</a>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>&copy; 2026 SaadMehmood. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

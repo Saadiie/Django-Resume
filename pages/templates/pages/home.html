@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Saad Mehmood{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero {
+        max-width: 800px;
+        margin: 3rem auto;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+        color: #1a1a2e;
+        margin-bottom: 0.5rem;
+    }
+    .hero .subtitle {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 1.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+    .badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+        margin-bottom: 2rem;
+    }
+    .badge {
+        background: #1a1a2e;
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+    }
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .btn {
+        padding: 0.7rem 1.8rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: bold;
+    }
+    .btn-primary { background: #1a1a2e; color: white; }
+    .btn-outline { border: 2px solid #1a1a2e; color: #1a1a2e; }
+    .btn:hover { opacity: 0.85; }
+
+    .section { max-width: 800px; margin: 3rem auto; }
+    .section h2 { font-size: 1.6rem; color: #1a1a2e; margin-bottom: 1.2rem; border-bottom: 2px solid #1a1a2e; padding-bottom: 0.4rem; }
+
+    .project-card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 1.2rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .project-card h3 { color: #1a1a2e; margin-bottom: 0.4rem; }
+    .project-card p { color: #555; font-size: 0.95rem; line-height: 1.7; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+    .project-tag {
+        background: #f0f0f0;
+        color: #333;
+        padding: 0.2rem 0.7rem;
+        border-radius: 12px;
+        font-size: 0.78rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<div class="hero">
+    <h1>Hi, I'm Saad Mehmood 👋</h1>
+    <p class="subtitle">Python Developer · Django · REST APIs · Backend Enthusiast</p>
+    <p>
+        Computer Science graduate from University of Gujrat with a passion for building
+        clean, scalable backend systems. I specialise in Django and REST API development,
+        and I'm actively seeking an entry-level Python/Django role where I can contribute
+        and grow.
+    </p>
+    <div class="badges">
+        <span class="badge">Django</span>
+        <span class="badge">Django REST Framework</span>
+        <span class="badge">Python</span>
+        <span class="badge">REST APIs</span>
+        <span class="badge">SQLite</span>
+        <span class="badge">PostgreSQL</span>
+        <span class="badge">HTML5 & CSS3</span>
+        <span class="badge">Git & GitHub</span>
+    </div>
+    <div class="cta-buttons">
+        <a href="{% url 'contact' %}" class="btn btn-primary">Hire Me</a>
+        <a href="{% url 'about' %}" class="btn btn-outline">Learn More</a>
+    </div>
+</div>
+
+<!-- Featured Project -->
+<div class="section">
+    <h2>Featured Project</h2>
+    <div class="project-card">
+        <h3>Documind — AI-Powered Document Creator</h3>
+        <p>
+            Final Year Project. A full-stack document generation system that lets users create,
+            manage, and retrieve documents using AI-powered content generation. Built a Django
+            REST API backend, integrated OpenAI API for automated content, and connected a
+            Next.js frontend for a seamless experience.
+        </p>
+        <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Django</span>
+            <span class="project-tag">REST API</span>
+            <span class="project-tag">OpenAI API</span>
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">SQLite</span>
+            <span class="project-tag">OOP</span>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
